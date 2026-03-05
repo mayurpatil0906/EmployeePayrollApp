@@ -29,12 +29,24 @@ public class Employee {
                "\nUsername : " + account.getUsername();
     }
 
-    public void persist() throws IOException {
+    public void persist() {
 
-        FileWriter writer = new FileWriter("employee_data.txt", true);
+        try {
 
-        writer.write(empId + "," + name + "," + email + "," + phone + "," + account.getUsername() + "\n");
+            FileWriter writer = new FileWriter("employee_data.txt", true);
 
-        writer.close();
+            writer.write(empId + ",");
+            writer.write(name + ",");
+            writer.write(email + ",");
+            writer.write(phone + ",");
+            writer.write(account.getUsername() + ",");
+            writer.write(account.getPasswordHash());
+            writer.write("\n");
+
+            writer.close();
+
+        } catch (Exception e) {
+            System.out.println("File error: " + e.getMessage());
+        }
     }
 }

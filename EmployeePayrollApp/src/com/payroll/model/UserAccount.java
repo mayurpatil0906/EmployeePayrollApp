@@ -3,18 +3,18 @@ package com.payroll.model;
 public class UserAccount {
 
     private String username;
-    private String password;
+    private String passwordHash;
 
-    public UserAccount(String username, String password) {
+    public UserAccount(String username, String passwordHash) {
         this.username = username;
-        this.password = password;
+        this.passwordHash = passwordHash;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 }

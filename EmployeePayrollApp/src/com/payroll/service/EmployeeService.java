@@ -13,7 +13,8 @@ public class EmployeeService {
         Validator.validateEmail(email);
         Validator.validatePhone(phone);
 
-        UserAccount account = new UserAccount(username, password);
+        String hashedPassword = Validator.hashPassword(password);
+        UserAccount account = new UserAccount(username, hashedPassword);
 
         Employee employee = new Employee(empId, name, email, phone, account);
 
