@@ -9,10 +9,10 @@ public class EmployeeService {
     public Employee registerEmployee(String empId, String name, String email,
                                      String phone, String username, String password) throws Exception {
 
-        Validator.validateEmpId(empId);
+        Validator.validateEmployeeId(empId);
         Validator.validateEmail(email);
         Validator.validatePhone(phone);
-
+        Validator.validatePassword(password); 
         String hashedPassword = Validator.hashPassword(password);
         UserAccount account = new UserAccount(username, hashedPassword);
 
